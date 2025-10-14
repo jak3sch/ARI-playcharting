@@ -10,7 +10,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"predeploy": "npm run build & git commit -m 'gh pages update'",
+		"predeploy": "vite build && git add . && git commit -m \"gh pages update\"",
 		"deploy": "git push origin `git subtree split --prefix dist main`:gh-pages --force"
 	},
 	"dependencies": {
