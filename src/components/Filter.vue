@@ -20,7 +20,7 @@
 			class="uk-button uk-button-default uk-button-small"
 			type="button"
 			v-for="entry in findValuesByKey(filter)"
-			:uk-filter-control="`filter: [data-${filter}='${entry}']; group: ${filter}`"
+			:uk-filter-control="`filter: [data-${filter}*='${entry}']; group: ${filter}`"
 			@click="setTitle(entry)"
 		>
 			{{ entry }}
@@ -68,7 +68,8 @@ const findValuesByKey = (key) => {
 	if (!store.data) return [];
 	const values = store.data
 		.map((item) => item[key])
-		.filter((v) => v !== undefined && v !== null);
+		.filter((v) => v !== undefined && v !== null)
+		.flatMap((v) => splitAndTrim(v)); // split on , and trim whitespace
 
 	return [...new Set(values)]; // return unique values
 };
@@ -80,6 +81,13 @@ const setTitle = (entry) => {
 	}
 
 	filterTitle.value = props.title + ": " + entry;
+};
+
+// split string on , and trim whitespace
+const splitAndTrim = (str) => {
+	if (typeof str !== "string") return [str];
+	if (!str.includes(",")) return [str.trim()];
+	return str.split(",").map((s) => s.trim());
 };
 </script>
 
