@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
-import Play from "../views/Play.vue";
+import Home from "@/Views/Home.vue";
+import Play from "@/Views/Play.vue";
 
 // Example route components (replace with your actual components)
 
 const routes = [
 	{
-		path: import.meta.env.BASE_URL || "/",
+		path: "/ARI-playcharting/",
 		name: "Home",
 		component: Home,
 	},
 	{
-		path: import.meta.env.BASE_URL + ":id",
+		path: "/ARI-playcharting/:id",
 		name: "Play",
 		component: Play,
 	},
