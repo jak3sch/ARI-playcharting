@@ -6,7 +6,7 @@ import vueDevTools from "vite-plugin-vue-devtools";
 
 // https://vite.dev/config/
 export default defineConfig({
-	base: "https://jak3sch.github.io/ARI-playcharting/",
+	base: "/ARI-playcharting/",
 	plugins: [vue(), vueDevTools()],
 	resolve: {
 		alias: {
