@@ -11,7 +11,7 @@ const routes = [
 		component: Home,
 	},
 	{
-		path: "/ARI-playcharting/:id",
+		path: "/ARI-playcharting/play/:id",
 		name: "Play",
 		component: Play,
 	},
